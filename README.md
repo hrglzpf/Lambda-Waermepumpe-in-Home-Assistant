@@ -3,11 +3,19 @@
 Sämtliche Inhalte stehen zur freien Verfügung.
 Sie widerspiegeln den funktionierenden Stand in meiner eigenen Installation.
 Ich erhebe keinen Anspruch auf Vollständigkeit und Richtigkeit und übernehme somit auch keinerlei Verantwortung für Funktion und / oder Fehlerfreiheit.  
-**Verwendung auf eigenes Risiko!**
+**Verwendung auf eigenes Risiko!**  
+
+Ein gewisses Grundverständnis für die Funktion von Home Assistant wird vorausgesetzt.  
+Grundlegende Kenntnisse in der Handhabung der `configuration.yaml`,   
+in der YAML Syntax https://www.home-assistant.io/docs/configuration/yaml/,   
+in Templates https://www.home-assistant.io/docs/configuration/templating/ und   
+Sensor Entities https://www.home-assistant.io/integrations/template/#sensor  
+werden vorausgesetzt.  
+Es sind dazu mehr als ausreichend Anleitungen und Hilfestellungen auf Youtube und in den diversen Foren vorhanden!
 
 ### Grundlegende Gedanken
-Es werden hier mit der Modbus Integration und Template Helfern ausschliesslich Core Integrationen / Funktionen verwendet.  
-Dadurch entsteht keine Abhängigkeit von 3<sup>rd</sup> Party Integrationen und die Wahrscheinlichkeit, dass nach einem Update immer noch alles funktioniert, ist relativ hoch 😎.
+Es werden hier mit der Modbus Integration und Template Helfern **ausschliesslich** Core Integrationen / Funktionen verwendet.  
+Dadurch entsteht keine Abhängigkeit von 3<sup>rd</sup> Party Integrationen und die Wahrscheinlichkeit, dass nach einem der gefühlt unendlich vielen Updates immer noch alles funktioniert, ist relativ hoch 😎.
 ## Einleitung
 Die Konfiguration der Modbus Integration ist ausgelagert in eine eigene Datei `modbus.yaml`.  
 Damit das funktioniert, in der `configuration.yaml` die Zeile `modbus: !include modbus.yaml` eintragen.  
