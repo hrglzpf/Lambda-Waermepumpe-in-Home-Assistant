@@ -6,10 +6,12 @@ Ich erhebe keinen Anspruch auf Vollständigkeit und Richtigkeit und übernehme s
 **Verwendung auf eigenes Risiko!**  
 
 Ein gewisses Grundverständnis für die Funktion von Home Assistant wird vorausgesetzt.  
-Grundlegende Kenntnisse in der Handhabung der `configuration.yaml`,   
-in der YAML Syntax https://www.home-assistant.io/docs/configuration/yaml/,   
-in Templates https://www.home-assistant.io/docs/configuration/templating/ und   
-Sensor Entities https://www.home-assistant.io/integrations/template/#sensor  
+Grundlegende Kenntnisse
+- in der Handhabung der `configuration.yaml`
+- in der YAML Syntax https://www.home-assistant.io/docs/configuration/yaml/
+- in Templates https://www.home-assistant.io/docs/configuration/templating/
+- Sensor Entities https://www.home-assistant.io/integrations/template/#sensor
+
 werden vorausgesetzt.  
 Es sind dazu mehr als ausreichend Anleitungen und Hilfestellungen auf Youtube und in den diversen Foren vorhanden!
 
