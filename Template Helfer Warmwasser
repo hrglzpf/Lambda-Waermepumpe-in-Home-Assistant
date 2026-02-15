@@ -1,0 +1,40 @@
+sensor.wp_boiler_storungsnummer
+##
+{{ states('sensor.wp_boiler_istwerte_kombiniert').split(',')[0] | int(0) }}
+#############################
+
+sensor.wp_boiler_betriebszustand
+##
+{% if (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 0 %}
+Standby
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 1 %}
+Warmwasser
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 2 %}
+Legionellenschutz
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 3 %}
+Sommer
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 4 %}
+Frostschutz
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 5 %}
+Urlaub
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 6 %}
+Stop
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 7 %}
+Störung
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 8 %}
+Aus
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 9 %}
+Anforderung Warmwasser
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 10 %}
+Stop Nachlauf
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 11 %}
+Temperatur Sperre
+{% elif (states('sensor.wp_boiler_istwerte_kombiniert').split(',')[1] | int(0)) == 12 %}
+Standby Frostschutz
+{% endif %}
+################################
+
+sensor.wp_boiler_temperatur
+##
+{{ states('sensor.wp_boiler_istwerte_kombiniert').split(',')[2] | float(0) / 10 }}
+################################
