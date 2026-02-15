@@ -1,0 +1,268 @@
+# Modbus Konfiguratin
+
+- name: "Lambda WP"
+  type: tcp
+  host: 192.168.178.101
+  port: 502
+  sensors:
+    #
+    # Wärmepumpe allgemeiner Teil - kombiniert
+    #
+    - name: "WP_Allgemein_kombiniert"
+      unique_id: "WP Allgemein kombiniert"
+      slave: 1
+      address: 0
+      count: 5
+      data_type: custom
+      structure: ">5h"
+    #
+    # Wärmepumpe E-Manager - nur noch kombiniert
+    #
+    - name: "WP_E-Manager_kombiniert"
+      unique_id: "WP E-Manager kombiniert"
+      slave: 1
+      address: 100
+      count: 5
+      data_type: custom
+      structure: ">5h"
+    #
+    # Wärmepumpe Wärmepumpe
+    #
+    - name: "WP_Wärmepumpe_kombiniert"
+      unique_id: "WP Wärmepumpe kombiniert"
+      slave: 1
+      address: 1000
+      count: 20
+      data_type: custom
+      structure: ">20h"
+      #
+    - name: "WP Wärmepumpe Fehlerstatus"
+      slave: 1
+      address: 1000
+      data_type: uint16
+      #
+    - name: "WP Wärmepumpe Fehlernummer"
+      slave: 1
+      address: 1001
+      data_type: int16
+      #
+    - name: "WP Wärmepumpe Status"
+      slave: 1
+      address: 1002
+      data_type: uint16
+      #
+    - name: "WP Wärmepumpe Betriebszustand"
+      slave: 1
+      address: 1003
+      data_type: uint16
+      #
+    - name: "WP Wärmepumpe Vorlauftemperatur"
+      slave: 1
+      address: 1004
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.01
+      unit_of_measurement: "°C"
+      precision: 2
+      #
+    - name: "WP Wärmepumpe Rücklauftemperatur"
+      slave: 1
+      address: 1005
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.01
+      unit_of_measurement: "°C"
+      precision: 2
+      #
+    - name: "WP Wärmepumpe Vorlauf Durchfluss"
+      slave: 1
+      address: 1006
+      device_class: "volume_flow_rate"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.001
+      unit_of_measurement: "m³/h"
+      precision: 3
+      #
+    - name: "WP Wärmepumpe Energiequelle Eingangstemperatur"
+      slave: 1
+      address: 1007
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.01
+      unit_of_measurement: "°C"
+      precision: 2
+    #
+    - name: "WP Wärmepumpe Energiequelle Ausgangstemperatur"
+      slave: 1
+      address: 1008
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.01
+      unit_of_measurement: "°C"
+      precision: 2
+    #
+    - name: "WP Wärmepumpe Energiequelle Volumenstrom"
+      slave: 1
+      address: 1009
+      device_class: "volume_flow_rate"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.01
+      unit_of_measurement: "L/min"
+      precision: 2
+    #
+    - name: "WP Wärmepumpe Kompressor Auslastung"
+      slave: 1
+      address: 1010
+      # device_class: ES GIBT KEINE PASSENDE IN HOMEASSISTANT
+      state_class: "measurement"
+      data_type: uint16
+      scale: 0.01
+      unit_of_measurement: "%"
+      precision: 2
+    #
+    - name: "WP Wärmepumpe Heizleistung"
+      slave: 1
+      address: 1011
+      data_type: int16
+      device_class: "power"
+      state_class: "measurement"
+      scale: 0.1
+      precision: 1
+      unit_of_measurement: "kW"
+    #
+    - name: "WP Wärmepumpe Frequenzumrichter Leistungsaufnahme"
+      slave: 1
+      address: 1012
+      data_type: int16
+      device_class: "power"
+      state_class: "measurement"
+      scale: 1
+      precision: 0
+      unit_of_measurement: "W"
+    #
+    - name: "WP Wärmepumpe COP"
+      slave: 1
+      address: 1013
+      # device_class: ES GIBT KEINE PASSENDE IN HOMEASSISTANT
+      state_class: "measurement"
+      data_type: uint16
+      scale: 1
+      unit_of_measurement: "%"
+      precision: 0
+    #
+    # Wärmepumpe Heizkreis
+    #
+    - name: "WP_Heizkreis_Istwerte_kombiniert"
+      unique_id: "WP Heizkreis Istwerte kombiniert"
+      slave: 1
+      address: 5000
+      count: 7
+      data_type: custom
+      structure: ">hH5h"
+
+    - name: "WP Heizkreis Fehlernummer"
+      slave: 1
+      address: 5000
+      data_type: int16
+      #
+    - name: "WP Heizkreis Betriebszustand"
+      slave: 1
+      address: 5001
+      data_type: uint16
+      #
+    - name: "WP Heizkreis Vorlauftemperatur"
+      slave: 1
+      address: 5002
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.1
+      unit_of_measurement: "°C"
+      precision: 1
+      #
+    - name: "WP Heizkreis Rücklauftemperatur"
+      slave: 1
+      address: 5003
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.1
+      unit_of_measurement: "°C"
+      precision: 1
+      #
+    - name: "WP Heizkreis Betriebsart"
+      slave: 1
+      address: 5006
+      data_type: uint16
+      #
+    - name: "WP Heizkreis Offset Vorlauftemperatur Soll"
+      slave: 1
+      address: 5050
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.1
+      unit_of_measurement: "°C"
+      precision: 1
+    #
+    # Wärmepumpe Puffer
+    #
+    - name: "WP Puffer Fehlernummer"
+      slave: 1
+      address: 3000
+      data_type: int16
+      #
+    - name: "WP Puffer Betriebszustand"
+      slave: 1
+      address: 3001
+      data_type: uint16
+      #
+    - name: "WP Puffer Temperatur oben"
+      slave: 1
+      address: 3002
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.1
+      unit_of_measurement: "°C"
+      precision: 1
+      #
+    - name: "WP Puffer Maximaltemperatur"
+      slave: 1
+      address: 3050
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.1
+      unit_of_measurement: "°C"
+      precision: 1
+    #
+    # Wärmepumpe Boiler
+    #
+    - name: "WP_Boiler_Istwerte_kombiniert"
+      unique_id: "WP Boiler Istwerte kombiniert"
+      slave: 1
+      address: 2000
+      count: 4
+      data_type: custom
+      structure: ">hHhh"
+    #
+    - name: "WP Boiler Solltemperatur"
+      unique_id: "WP Boiler Solltemperatur"
+      slave: 1
+      address: 2050
+      device_class: "temperature"
+      state_class: "measurement"
+      data_type: int16
+      scale: 0.1
+      unit_of_measurement: "°C"
+      precision: 1
+    #
+    # Ende
+    #
