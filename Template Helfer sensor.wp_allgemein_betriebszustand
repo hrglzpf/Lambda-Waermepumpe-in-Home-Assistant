@@ -1,9 +1,0 @@
-{% if (states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0)) == 0  %}
-Aus 
-{% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 1  %}
-Automatik
-{% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 2  %}
-Hand
-{% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 3  %}
-Störung
-{% endif %}
