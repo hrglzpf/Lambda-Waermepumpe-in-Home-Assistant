@@ -64,5 +64,5 @@ Hand
 Störung
 {% endif %}
 ```
-
+Die Konfigurationen der Template Helfer sind als Einzeldatein in diesem Repository zu finden.
 ## Sollwert und Steuer Register beschreiben
