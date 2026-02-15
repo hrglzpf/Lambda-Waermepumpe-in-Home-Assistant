@@ -69,5 +69,19 @@ Konfigurationsdialog für o.a. Helfer:
 
 Die Konfigurationen der Template Helfer sind als Einzeldatein in diesem Repository zu finden.  
 
-
+## Werte, die nicht von der Wärmepumpe zur Verfügung gestellt werden
+Die Werte für die Vorlauf-Soll Temperatur `sensor.wp_vorlauf_heizkreis_berechnet` und für die Puffer-Soll Temperatur `sensor.wp_puffer_soll_berechnet` werden nicht per Modbus zur Verfügung gestellt.  
+Deshalb mit je einem Template Helfer berechnet.  
+Für die Berechnung der Vorlauf-Soll Temperatur wird einfach die Heizkurve nachgebildet.  
+Hier bitte mit probieren die richtigen Werte ermitteln.  
+```yaml
+{{36 + ((25 - (float(states('sensor.wp_allgemein_aussentemperatur_berechnet_fur_regelung'))) ) *0.40) | round(1) }}
+```
+Für die Puffer-Soll Temperatur wird die Vorlauf-Soll Temperatur plus der Vorlauf-Offset plus 1 °C verwendet.  
+```yaml
+{{
+states('sensor.wp_vorlauf_heizkreis_berechnet') | float() + 
+states('sensor.wp_heizkreis_offset_vorlauftemperatur_soll') | float() + 1
+}}
+```
 ## Sollwert und Steuer Register beschreiben
