@@ -49,4 +49,20 @@ Es werden jeweils ganze, zusammengehörige Blöcke abgefragt und die abgefragten
 <img width="816" height="309" alt="{D8720FFB-4C35-41FB-9645-09948FB4441F}" src="https://github.com/user-attachments/assets/57c1c8d6-f5c5-4150-b205-fd1722514b1f" />
 
 ## Helfer zum Erzeugen "verwendbarer" Entitäten 
+Es werden nicht alle vorhandenen Register in Entitäten abgebildet, sondern nur diejenigen die ich aktuell verwende!  
+
+Das Array im State des "kombinierten" Sensors wird im Template mit der Split Methode zerlegt.  
+Beispiel WP Allgemein Betriebszustand:  
+```yaml
+{% if (states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0)) == 0  %}
+Aus 
+{% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 1  %}
+Automatik
+{% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 2  %}
+Hand
+{% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 3  %}
+Störung
+{% endif %}
+```
+
 ## Sollwert und Steuer Register beschreiben
