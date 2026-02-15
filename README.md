@@ -27,7 +27,9 @@ Aktueller Stand (2026-02-15) der Modbus Dokumentation der Fa. Lambda https://lam
 Softwarestand auf meiner Wärmepumpe:  
 <img width="1722" height="1032" alt="{792CCD2A-4638-439A-9518-3EA266133796}" src="https://github.com/user-attachments/assets/e4e583c8-24bc-4957-85ec-1d5847d91a8d" />  
 
-Vollständige Konfiguration der Modbus Integration siehe https://github.com/hrglzpf/Lambda-Waermepumpe-in-Home-Assistant/blob/main/modbus.yaml  
+Vollständige Konfiguration der Modbus Integration siehe https://github.com/hrglzpf/Lambda-Waermepumpe-in-Home-Assistant/blob/main/modbus.yaml    
+
+### Beispiel für die kombinierte Abfrage des "General" Teils der Modbus Register
 
 ```yaml
 #
