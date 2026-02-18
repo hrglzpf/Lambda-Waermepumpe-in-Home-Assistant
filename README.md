@@ -1,3 +1,7 @@
+>[!IMPORTANT]
+>**Work in progress!**
+
+  
 # Lambda Wämepumpe in Home Assistant
 ### Hinweis
 Sämtliche Inhalte stehen zur freien Verfügung.
