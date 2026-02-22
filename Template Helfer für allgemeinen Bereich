@@ -1,7 +1,7 @@
 sensor.wp_allgemein_storungsnummer
 ##
 {{ states('sensor.wp_allgemein_kombiniert').split(',')[0] | int(0) }}
-#############
+#############################
 
 sensor.wp_allgemein_betriebszustand
 ##
@@ -14,20 +14,21 @@ Hand
 {% elif states('sensor.wp_allgemein_kombiniert').split(',')[1] | int(0) == 3  %}
 Störung
 {% endif %}
-#############
+#############################
 
 sensor.wp_allgemein_aussentemperatur_aktuell
 ##
 {{ states('sensor.wp_allgemein_kombiniert').split(',')[2] | float(0) / 10 }}
-#############
+#############################
 
 sensor.wp_allgemein_aussentemperatur_mittelwert_1h
 ##
 {{ states('sensor.wp_allgemein_kombiniert').split(',')[3] | float(0) / 10 }}
-#############
+##########################################
 
 sensor.wp_allgemein_aussentemperatur_berechnet_fur_regelung
 ##
 {{ states('sensor.wp_allgemein_kombiniert').split(',')[4] | float(0) / 10 }}
-#############
+#############################
 
+## ENDE ##
