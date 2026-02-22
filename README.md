@@ -91,3 +91,22 @@ states('sensor.wp_heizkreis_offset_vorlauftemperatur_soll') | float() + 1
 }}
 ```
 ## Sollwert und Steuer Register beschreiben
+Register werden per Aktion beschrieben.
+  
+Hier als Beispiel die Boiler Solltemperatur:  
+
+<img width="1000" alt="{C9A73268-2097-48DF-BFD6-E9BA9A8DD1D6}" src="https://github.com/user-attachments/assets/eb5e651d-a843-4fb4-a5b9-a293f259b1ed" />  
+
+```yaml
+- action: modbus.write_register
+  metadata: {}
+  data:
+    hub: Lambda WP
+    address: 2050
+    slave: 1
+    value: [{{ (((states('input_number.wp_boiler_absenktemp')) | float) *10) | int}}]
+```
+In einer Automation sieht das so aus:  
+<img width="400" alt="{D94E70B2-11FE-4AC8-A9A8-866CAF0077A0}" src="https://github.com/user-attachments/assets/86145220-0387-4f3d-9318-af5ebfa1a643" />  
+
+
