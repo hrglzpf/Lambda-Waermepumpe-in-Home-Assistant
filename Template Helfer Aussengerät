@@ -1,0 +1,149 @@
+sensor.wp_warmepumpe_fehlerstatus
+##
+{% if (states('sensor.wp_warmepumpe_kombiniert').split(',')[0] | int(0)) == 0  %}
+keine Meldung
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[0] | int(0)) == 1  %}
+Meldung
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[0] | int(0)) == 2  %}
+Warnung
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[0] | int(0)) == 3  %}
+Alarm
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[0] | int(0)) == 4  %}
+Störung
+{% endif %}
+#############################
+
+sensor.wp_warmepumpe_fehlernummer
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[1] | int(0) }}
+#############################
+
+sensor.wp_warmepumpe_status
+##
+{% if (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 0  %}
+Initialisierung
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 1  %}
+Referenzieren
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 2  %}
+Anlauf blockiert
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 3  %}
+Bereit
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 4  %}
+Pumpen Hochlauf
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 5  %}
+Kompressor Hochlauf
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 6  %}
+Vorregelbetrieb
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 7  %}
+Regelbetrieb
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 8  %}
+NV
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 9  %}
+Kühlen
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 10  %}
+Abtaubetrieb
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 20  %}
+Stop
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 30  %}
+Störung blockiert
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 31  %}
+Alarm blockiert
+{% elif (states('sensor.wp_warmepumpe_kombiniert').split(',')[2] | int(0)) == 40  %}
+Zurücksetzen
+{% endif %}
+#############################
+
+sensor.wp_warmepumpe_betriebszustand
+##
+{% if (states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0)) == 0  %}
+Standby 
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 1  %}
+Heizen
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 2  %}
+Warmwasser
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 3  %}
+Kühlen
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 4  %}
+Zirkulation
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 5  %}
+Abtauen
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 6  %}
+Aus
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 7  %}
+Frostschutz
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 8  %}
+Standby Frostschutz
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 9  %}
+NV
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 10  %}
+Sommer
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 11  %}
+Urlaub
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 12  %}
+Fehler
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 13  %}
+Warnung
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 14  %}
+Info Nachricht
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 15  %}
+Zeitsperre Anlauf
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 16  %}
+Freigabe blockiert
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 17  %}
+Minimaltemperatur blockiert
+{% elif states('sensor.wp_warmepumpe_kombiniert').split(',')[3] | int(0) == 18  %}
+Firmware Download
+{% endif %}
+#############################
+
+sensor.wp_warmepumpe_vorlauftemperatur
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[4] | float(0) / 100 }}
+#############################
+
+sensor.wp_warmepumpe_rucklauftemperatur
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[5] | float(0) / 100 }}
+#############################
+
+sensor.wp_warmepumpe_vorlauf_durchfluss
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[6] | float(0) / 1000 }}
+#############################
+
+sensor.wp_warmepumpe_energiequelle_eingangstemperatur
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[7] | float(0) / 100 }}
+#############################
+
+sensor.wp_warmepumpe_kompressor_auslastung
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[10] | float(0) / 100 }}
+#############################
+
+sensor.wp_warmepumpe_heizleistung
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[11] | float(0) / 10 }}
+#############################
+
+sensor.wp_warmepumpe_frequenzumrichter_leistungsaufnahme
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[12] | float(0) }}
+#############################
+
+sensor.wp_warmepumpe_cop
+##
+{{ states('sensor.wp_warmepumpe_kombiniert').split(',')[13] | float(0) }}
+#############################
+
+## ENDE ##
+
+
+
+
+
+
+
+
+
+
