@@ -1,0 +1,84 @@
+sensor.wp_heizkreis_fehlernummer
+##
+{{ states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[0] | int(0) }}
+#############################
+
+sensor.wp_heizkreis_betriebszustand
+##
+{% if (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 0 %}
+Heizen
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 1 %}
+Eco
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 2 %}
+Kühlen
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 3 %}
+Estrich Trocknung
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 4 %}
+Frostschutz
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 5 %}
+Maximale Temperatur
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 6 %}
+Störung
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 7 %}
+Service
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 8 %}
+Urlaub
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 9 %}
+Heizen Sommer
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 10 %}
+Kühlen Sommer
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 11 %}
+Stop
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 12 %}
+Aus
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 13 %}
+Freigabe Aus
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 14 %}
+Zeit Aus
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 15 %}
+Standby
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 16 %}
+Standby Heizen
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 17 %}
+Standby Eco
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 18 %}
+Standby Kühlen
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 19 %}
+Standby Frostschutz
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[1] | int(0)) == 20 %}
+Standby Estrich Trocknung
+{% endif %}
+#############################
+
+sensor.wp_heizkreis_vorlauftemperatur
+##
+{{ states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[2] | float(0) / 10 }}
+#############################
+
+sensor.wp_heizkreis_betriebsart
+##
+N/A
+{% if (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 0 %}
+Aus
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 1 %}
+Hand
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 2 %}
+Automatik
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 3 %}
+Automatik Heizen
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 4 %}
+Automatik Kühlen
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 5 %}
+Frostschutz
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 6 %}
+Sommer
+{% elif (states('sensor.wp_heizkreis_istwerte_kombiniert').split(',')[6] | int(0)) == 7 %}
+Estrich Trocknung
+{% endif %}
+#############################
+
+sensor.wp_heizkreis_offset_vorlauftemperatur_soll
+##
+{{ states('sensor.wp_heizkreis_sollwerte_kombiniert').split(',')[0] | float(0) / 10 }}
+
+## ENDE ##
