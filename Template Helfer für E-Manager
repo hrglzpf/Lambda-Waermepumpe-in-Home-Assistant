@@ -32,3 +32,5 @@ sensor.wp_e_manager_leistungsaufnahme_soll
 ##
 {{ states('sensor.wp_e_manager_kombiniert').split(',')[4] | float(0) }}
 ####################################
+
+## ENDE ##
