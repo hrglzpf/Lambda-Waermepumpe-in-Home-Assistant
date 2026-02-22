@@ -38,3 +38,10 @@ sensor.wp_boiler_temperatur
 ##
 {{ states('sensor.wp_boiler_istwerte_kombiniert').split(',')[2] | float(0) / 10 }}
 ################################
+
+sensor.wp_boiler_solltemperatur
+##
+{{ states('sensor.wp_boiler_sollwerte_kombiniert').split(',')[0] | float(0) / 10 }}
+################################
+
+## ENDE ##
